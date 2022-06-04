@@ -4,11 +4,10 @@
 Poem Diary is a website that allows you to privately express yourself through short, limited poem-like posts. Because these posts are limited, you can spend less time working on your diary every day. It also allows you to exerce your creativity and essay skills by having to condense your day into a smaller structure.
 
 ## :computer: Technologies used
-This project utilizes Typescript/Javascript.
+This project utilizes Typescript/Javascript. It is composed with Docker and deployed with Heroku.
 
-:page_with_curl: **Front-end:** React
+:page_with_curl: **Front-end:** React <br>
 :file_cabinet: **Back-end:** Express and MongoDB
-*Composed with Docker and deployed with Heroku.*
 
 ## :gear: How to install
 1. Clone the repository
