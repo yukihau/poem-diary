@@ -1,6 +1,7 @@
 {
   "name": "front-end",
   "version": "0.1.0",
+  "description": "A simple front-end react app for the Poem Diary!",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
