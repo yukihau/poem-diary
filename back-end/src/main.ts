@@ -12,6 +12,7 @@ async function bootstrap() {
   main().catch((err) => console.log(err));
   console.log('Mongoose started successfuly.');
 
+  app.enableCors();
   await app.listen(PORT);
   console.log('Server started on port ' + PORT);
   console.log('------------------');
