@@ -7,7 +7,7 @@ PoemDiary is a website that allows you to privately express yourself through sho
 This project utilizes Typescript/Javascript. It is composed with Docker and deployed with Heroku.
 
 :page_with_curl: **Front-end:** React and Next.js <br>
-:file_cabinet: **Back-end:** Express and MongoDB
+:file_cabinet: **Back-end:** NestJS
 
 ## :gear: How to install
 1. Clone the repository
