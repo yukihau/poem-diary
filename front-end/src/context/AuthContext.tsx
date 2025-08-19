@@ -1,7 +1,7 @@
 "use client";
 import { getUser } from "@/services/auth";
 import { usePathname, useRouter } from "next/navigation";
-import { createContext, useContext, useState, ReactNode, PropsWithChildren, useEffect } from "react";
+import { createContext, useContext, useState, PropsWithChildren, useEffect } from "react";
 
 type User = {
   username: string;
@@ -9,8 +9,6 @@ type User = {
 
 type AuthContextType = {
   user: User,
-  login: (username: string, password: string) => void;
-  logout: () => void;
   validateLogin: () => void;
 } | undefined;
 
@@ -20,20 +18,6 @@ export function AuthProvider({ children }: PropsWithChildren) {
   const router = useRouter();
   const pathname = usePathname();
   const [user, setUser] = useState<User>(null);
-
-  const login = (username: string, password: string) => {
-    if (username === "yukiiris" && password === "123") {
-      setUser({ username });
-      localStorage.setItem("token", "123");
-    } else {
-      throw new Error("Invalid credentials");
-    }
-  };
-
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem("token");
-  };
 
   const validateLogin = () => {
     try {
@@ -54,7 +38,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
   }, [])
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, validateLogin }}>
+    <AuthContext.Provider value={{ user, validateLogin }}>
       { children }
     </AuthContext.Provider>
   )
