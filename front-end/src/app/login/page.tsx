@@ -4,6 +4,7 @@ import Button from "@/components/button/Button";
 import PasswordInput from "@/components/input/PasswordInput";
 import TextInput from "@/components/input/TextInput";
 import { authLogin } from "@/services/auth";
+import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react"
 
@@ -21,7 +22,11 @@ export default function Login() {
       localStorage.setItem("token", token);
       router.push("/home");
     } catch (error: unknown) {
-      setError(error?.message)
+      if (axios.isAxiosError(error)) {
+        setError(error.response?.data?.message || "Login error");
+      } else {
+        setError("An unexpected error has occurred");
+      }
     }
   }
 

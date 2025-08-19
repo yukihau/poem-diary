@@ -3,6 +3,8 @@
 import Button from "@/components/button/Button";
 import PasswordInput from "@/components/input/PasswordInput";
 import TextInput from "@/components/input/TextInput";
+import { authRegister } from "@/services/auth";
+import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -17,6 +19,15 @@ export default function Register() {
 
   const handleRegister = () => {
     setError("");
+    try {
+      authRegister(fullName, email, username, password);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        setError(error.response?.data?.message || "Register error");
+      } else {
+        setError("An unexpected error has occurred");
+      }
+    }
     if (fullName && email && username && password) return router.push("/login");
     setError("Please fill all the fields!")
   }

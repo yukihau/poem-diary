@@ -1,7 +1,7 @@
 "use client";
-import { authLogin, getUser } from "@/services/auth";
+import { getUser } from "@/services/auth";
 import { usePathname, useRouter } from "next/navigation";
-import { createContext, useContext, useState, ReactNode, PropsWithChildren, useEffect } from "react";
+import { createContext, useContext, useState, PropsWithChildren, useEffect } from "react";
 
 type User = {
   username: string;
@@ -9,8 +9,6 @@ type User = {
 
 type AuthContextType = {
   user: User,
-  login: (username: string, password: string) => void;
-  logout: () => void;
   validateLogin: () => void;
 } | undefined;
 
@@ -40,7 +38,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
   }, [])
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, validateLogin }}>
+    <AuthContext.Provider value={{ user, validateLogin }}>
       { children }
     </AuthContext.Provider>
   )
