@@ -5,7 +5,7 @@ interface ButtonProps {
 }
 
 export default function Button({ text, color, onClick }: ButtonProps) {
-  const defaultClasses = "text-white hover:cursor-pointer transition-colors duration-300 focus:outline-none font-medium rounded-full text-sm w-[12rem] py-2.5 text-center"
+  const defaultClasses = "w-[16rem] py-2.5 text-white hover:cursor-pointer transition-colors duration-300 focus:outline-none font-medium rounded-full text-sm text-center"
 
   const colors = {
     login: "bg-gradient-to-r from-violet-400 to-violet-500 hover:from-violet-700 hover:to-violet-800 hover:cursor-pointer focus:ring-4 focus:ring-violet-300",
