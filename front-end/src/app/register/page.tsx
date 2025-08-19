@@ -18,7 +18,7 @@ export default function Register() {
   const handleRegister = () => {
     setError("");
     if (fullName && email && username && password) return router.push("/login");
-    setError("Por favor preencha todos os dados!")
+    setError("Please fill all the fields!")
   }
 
   const goToLoginPage = () => {
@@ -29,14 +29,14 @@ export default function Register() {
     <main className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-br from-gray-900 to-indigo-500">
       <div className="flex flex-col justify-center items-center p-10 pt-20 pb-20 m-10 w-[90vw] max-w-[24rem] h-[h-auto] bg-[white] drop-shadow-2xl">
         <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-400 to-indigo-500 bg-clip-text text-transparent">
-          Registrar
+          Register
         </h1>
         <div className="mt-10">
           <TextInput
             id="fullName"
             value={ fullName }
             onChange={ setFullName }
-            placeholder="Escreva seu nome completo"
+            placeholder="Full name"
           />
         </div>
         <div className="mt-2">
@@ -44,7 +44,7 @@ export default function Register() {
             id="email"
             value={ email }
             onChange={ setEmail }
-            placeholder="Escreva seu email"
+            placeholder="Email"
           />
         </div>
         <div className="mt-2">
@@ -52,7 +52,7 @@ export default function Register() {
             id="username"
             value={ username }
             onChange={ setUsername }
-            placeholder="Escreva seu usuário"
+            placeholder="Username"
           />
         </div>
         <div className="mt-2">
@@ -60,7 +60,7 @@ export default function Register() {
             id="password"
             value={ password }
             onChange={ setPassword }
-            placeholder="Escreva sua senha"
+            placeholder="Password"
           />
         </div>
         <div className="mt-2">
@@ -70,7 +70,7 @@ export default function Register() {
         </div>
         <div className="mt-10">
           <Button
-            text="Criar Conta"
+            text="Create Account"
             color="register"
             onClick={ handleRegister }
           />
@@ -80,7 +80,7 @@ export default function Register() {
             className="text-gray-700 underline hover:cursor-pointer hover:text-blue-800"
             onClick={ goToLoginPage }
           >
-            Já tenho uma conta
+            I already have an account!
           </a>
         </div>
       </div>

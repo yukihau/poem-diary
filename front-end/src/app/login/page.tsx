@@ -17,7 +17,7 @@ export default function Login() {
     setError("");
 
     if (!username || !password) {
-      return setError("Usuário ou senha não foi preenchido.");
+      return setError("User or password has not been filled.");
     }
 
     localStorage.setItem("token", username);
@@ -39,7 +39,7 @@ export default function Login() {
             id="username"
             value={ username }
             onChange={ setUsername }
-            placeholder="Usuário"
+            placeholder="Username"
           />
         </div>
         <div className="mt-2">
@@ -47,7 +47,7 @@ export default function Login() {
             id="password"
             value={ password }
             onChange={ setPassword }
-            placeholder="Senha"
+            placeholder="Password"
           />
         </div>
         <div className="mt-2">
@@ -68,12 +68,12 @@ export default function Login() {
               className="text-gray-700 underline hover:cursor-pointer hover:text-blue-800"
               onClick={ goToRegisterPage }
             >
-              Criar conta
+              Sign In
             </a>
           </div>
           <div>
             <a className="text-gray-700 underline hover:cursor-pointer hover:text-blue-800">
-              Esqueci a senha
+              Forgot Password
             </a>
           </div>
         </div>
