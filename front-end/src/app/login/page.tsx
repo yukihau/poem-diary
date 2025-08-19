@@ -2,6 +2,7 @@
 
 import Button from "@/components/button/Button";
 import TextInput from "@/components/input/TextInput";
+import { authLogin } from "@/services/auth";
 import { useRouter } from "next/navigation";
 import { useState } from "react"
 
@@ -14,13 +15,13 @@ export default function Login() {
 
   const handleLogin = async () => {
     setError("");
-
-    if (!username || !password) {
-      return setError("Usuário ou senha não foi preenchido.");
+    try {
+      const token = await authLogin(username, password)
+      localStorage.setItem("token", token);
+      router.push("/home");
+    } catch (error: unknown) {
+      setError(error?.message)
     }
-
-    localStorage.setItem("token", username);
-    router.push("/home");
   }
 
   const goToRegisterPage = async () => {

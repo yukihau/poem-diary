@@ -1,5 +1,5 @@
 "use client";
-import { getUser } from "@/services/auth";
+import { authLogin, getUser } from "@/services/auth";
 import { usePathname, useRouter } from "next/navigation";
 import { createContext, useContext, useState, ReactNode, PropsWithChildren, useEffect } from "react";
 
@@ -20,20 +20,6 @@ export function AuthProvider({ children }: PropsWithChildren) {
   const router = useRouter();
   const pathname = usePathname();
   const [user, setUser] = useState<User>(null);
-
-  const login = (username: string, password: string) => {
-    if (username === "yukiiris" && password === "123") {
-      setUser({ username });
-      localStorage.setItem("token", "123");
-    } else {
-      throw new Error("Invalid credentials");
-    }
-  };
-
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem("token");
-  };
 
   const validateLogin = () => {
     try {
